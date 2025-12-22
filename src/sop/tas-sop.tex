@@ -1,43 +1,26 @@
-\documentclass[12pt]{article}
+% src/sop/tas-sop.tex
+% NOTE: This file is intended to be INCLUDED by playbook.tex via \include{}
+% Do NOT add \documentclass, \usepackage, \begin{document}, \end{document}, or \pagestyle here.
 
-% ---------- Packages ----------
-\usepackage[margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{setspace}
-\usepackage{enumitem}
-\usepackage{tcolorbox} % For email formatting
-\usepackage{graphicx}  % For logo image
-\usepackage{hyperref}  % For clickable TOC links
-\usepackage{xcolor, soul}
+% ------------------------------------------------------------
+% SOP Title (playbook-friendly)
+% ------------------------------------------------------------
+\clearpage
+\section*{Technical Alignment Superhero (TAS) Standard Operating Procedures}
+\addcontentsline{toc}{section}{Technical Alignment Superhero (TAS) Standard Operating Procedures}
 
-% ---------- Shared footer + version control ----------
-\input{tas-footer.tex}  % defines \fancypagestyle{tasfooter}
+\noindent
+\textbf{Purpose:} Define the standard operating procedures governing the Technical Alignment Superhero (TAS) role at Tekie Geek. This SOP is the governing backbone for alignment reviews and all related TAS playbook artifacts.\\[6pt]
+\textbf{Scope:} Applies to all TAS-led alignment reviews, including preparation, onsite validation, documentation, reporting, and follow-up.\\[6pt]
+\textbf{Authority:} TAS documents facts and alignment observations. vCIO approves risk scoring, prioritization, and client-facing recommendations.
 
-% ---------- Formatting ----------
-\setstretch{1.15}
-\setlist{nosep}
+\vspace{0.75cm}
 
-% ---------- Document ----------
-\begin{document}
-
-% ---------- Logo ----------
-\begin{center}
-\includegraphics[width=0.5\textwidth]{TekieGeekLogo.png} \\
-\vspace{0.5cm}
-{\LARGE \textbf{Technical Alignment Superhero (TAS) Standard Operating Procedures}}
-\end{center}
-\thispagestyle{empty} % no header/footer on title page
-
-\vspace{0.5cm}
-\tableofcontents
-\newpage
-
-% Activate shared TAS page style (page number at top, version in footer)
-\pagestyle{tasfooter}
-
-% ---------- Job Definitions ----------
+% ------------------------------------------------------------
+% Role Definitions
+% ------------------------------------------------------------
 \section*{Role Definitions}
+\addcontentsline{toc}{section}{Role Definitions}
 
 \subsection*{Technical Alignment Superhero (TAS)}
 The TAS is responsible for executing technical assessments, validating client environments, documenting findings, and preparing observations for review. The TAS ensures that all technical aspects of the client environment are accurate, up-to-date, and aligned with Tekie Geek standards. The TAS may recommend actions for remediation internally but does \textbf{not} independently present or finalize strategic recommendations to the client.
@@ -45,9 +28,10 @@ The TAS is responsible for executing technical assessments, validating client en
 \subsection*{vCIO (Virtual Chief Information Officer)}
 The vCIO is responsible for reviewing TAS findings, finalizing alignment scores, prioritizing risks based on business impact, and approving or refining strategic recommendations before they are communicated to the client. The vCIO ensures that all recommendations align with business objectives and client-specific constraints. TAS findings are considered a foundational input for the vCIO.
 
-\newpage
-
-% ---------- Step 1 ----------
+% ------------------------------------------------------------
+% Step 1
+% ------------------------------------------------------------
+\clearpage
 \section{Pre-Assessment Prep Work}
 
 \textbf{Goal:} Establish the framework, standards, and tools required to perform a consistent and objective technical alignment review. Ensure readiness prior to engaging in any client-specific evaluation. No client-specific findings or alignment gaps should be identified during this step.
@@ -104,12 +88,12 @@ Define the core alignment categories to be used during assessment:
 
 \subsubsection{Risk Scoring}
 
-Define a standardized risk scoring methodology that is simple, consistent, and easily understood by both technical and non-technical stakeholders. Note: TAS collects observations and initial scoring of yes or no(aligned or not aligned); final risk scoring is approved by the vCIO.
+Define a standardized risk scoring methodology that is simple, consistent, and easily understood by both technical and non-technical stakeholders. Note: TAS collects observations and initial scoring of yes or no (aligned or not aligned); final risk scoring is approved by the vCIO.
 
 \subsubsection{Notes Format}
 \hl{NEED TO DEFINE THIS PORTION A BIT BETTER}
 
-All sections of the technical alignment review \textbf{must} have notes corresponding with the 
+All sections of the technical alignment review \textbf{must} have notes corresponding with the
 
 \subsection{Step 1 Output}
 
@@ -119,9 +103,10 @@ All sections of the technical alignment review \textbf{must} have notes correspo
     \item Clear readiness to begin client-specific planning and scheduling
 \end{itemize}
 
-\newpage
-
-% ---------- Step 2 ----------
+% ------------------------------------------------------------
+% Step 2
+% ------------------------------------------------------------
+\clearpage
 \section{Client Planning and Scheduling}
 
 \textbf{Goal:} Ensure the TAS arrives onsite with appropriate context, access, stakeholders, and priorities. Plan the engagement and identify areas requiring onsite validation. All meetings must be documented in myITprocess using the scheduling feature.
@@ -233,9 +218,10 @@ Review ITGlue to build familiarity with the client environment. Missing or incom
     \item Readiness to proceed with onsite validation and discovery
 \end{itemize}
 
-\newpage
-
-% ---------- Step 3 ----------
+% ------------------------------------------------------------
+% Step 3
+% ------------------------------------------------------------
+\clearpage
 \section{Pre-Visit Data Gathering}
 
 \textbf{Goal:} Minimize time onsite by doing thorough homework beforehand. Ensure the TAS arrives with accurate, up-to-date information and a clear action plan. No formal alignment findings are generated during this phase.
@@ -263,8 +249,10 @@ Review ITGlue to build familiarity with the client environment. Missing or incom
     \item Clear, actionable checklist for the onsite visit
 \end{itemize}
 
-\newpage
-% ---------- Step 4 ----------
+% ------------------------------------------------------------
+% Step 4
+% ------------------------------------------------------------
+\clearpage
 \section{Onsite Validation and Discovery}
 
 \textbf{Goal:} Validate pre-collected information, gather missing data, and identify alignment gaps for formal reporting. Ensure the client environment is accurately documented in ITGlue and myITprocess.
@@ -302,9 +290,10 @@ Review ITGlue to build familiarity with the client environment. Missing or incom
     \item Alignment reviews must be completed on the same day as the onsite visit unless explicitly approved by leadership
 \end{itemize}
 
-\newpage
-
-% ---------- Step 5 ----------
+% ------------------------------------------------------------
+% Step 5
+% ------------------------------------------------------------
+\clearpage
 \section{Reporting and Recommendations}
 
 \textbf{Goal:} Produce an actionable alignment report summarizing observations, gaps, risks, and recommended remediations for vCIO review.
@@ -336,9 +325,10 @@ Review ITGlue to build familiarity with the client environment. Missing or incom
     \item myITprocess updated with finalized risks and follow-up actions
 \end{itemize}
 
-\newpage
-
-% ---------- Step 6 ----------
+% ------------------------------------------------------------
+% Step 6
+% ------------------------------------------------------------
+\clearpage
 \section{Follow-Up and Continuous Improvement}
 
 \textbf{Goal:} Ensure recommendations are implemented and continuously improve the alignment process.
@@ -370,8 +360,10 @@ Review ITGlue to build familiarity with the client environment. Missing or incom
     \item Improved TAS workflow and alignment consistency
 \end{itemize}
 
-% ---------- Appendix ----------
-\newpage
+% ------------------------------------------------------------
+% Appendices
+% ------------------------------------------------------------
+\clearpage
 \section*{Appendix A: TAS vs vCIO Responsibilities}
 \addcontentsline{toc}{section}{Appendix A: TAS vs vCIO Responsibilities}
 
@@ -393,8 +385,7 @@ Follow-Up and Continuous Improvement & Confirm remediation completion; re-valida
 \hline
 \end{tabular}
 
-% ---------- Quick Reference Checklist ----------
-\newpage
+\clearpage
 \section*{Appendix B: TAS Quick Reference Checklist}
 \addcontentsline{toc}{section}{Appendix B: TAS Quick Reference Checklist}
 
@@ -402,14 +393,14 @@ Follow-Up and Continuous Improvement & Confirm remediation completion; re-valida
 \hline
 \textbf{Step} & \textbf{Key TAS Actions} \\
 \hline
-Pre-Assessment Prep Work & 
+Pre-Assessment Prep Work &
 \begin{itemize}[nosep,leftmargin=*]
     \item Finalize alignment and lifecycle standards
     \item Structure alignment tool in myITprocess
     \item Confirm readiness for client engagement
 \end{itemize} \\
 \hline
-Client Planning and Scheduling & 
+Client Planning and Scheduling &
 \begin{itemize}[nosep,leftmargin=*]
     \item Review ITGlue documentation
     \item Identify stakeholders and primary contacts
@@ -417,7 +408,7 @@ Client Planning and Scheduling &
     \item Prepare client outreach communication
 \end{itemize} \\
 \hline
-Pre-Visit Data Gathering & 
+Pre-Visit Data Gathering &
 \begin{itemize}[nosep,leftmargin=*]
     \item Collect RMM device list and verify endpoints
     \item Review backups and security alerts
@@ -425,7 +416,7 @@ Pre-Visit Data Gathering &
     \item Pre-fill alignment tool and create onsite checklist
 \end{itemize} \\
 \hline
-Onsite Validation and Discovery & 
+Onsite Validation and Discovery &
 \begin{itemize}[nosep,leftmargin=*]
     \item Validate inventory and system configurations
     \item Check backups, security, firewall, and cloud services
@@ -434,7 +425,7 @@ Onsite Validation and Discovery &
     \item Tag high-risk items for vCIO review
 \end{itemize} \\
 \hline
-Reporting and Recommendations & 
+Reporting and Recommendations &
 \begin{itemize}[nosep,leftmargin=*]
     \item Draft alignment report with detailed findings
     \item Capture evidence and screenshots
@@ -442,7 +433,7 @@ Reporting and Recommendations &
     \item Ensure report is understandable to technical and executive audiences
 \end{itemize} \\
 \hline
-Follow-Up and Continuous Improvement & 
+Follow-Up and Continuous Improvement &
 \begin{itemize}[nosep,leftmargin=*]
     \item Track remediation completion in myITprocess
     \item Re-validate systems and backup success
@@ -451,5 +442,3 @@ Follow-Up and Continuous Improvement &
 \end{itemize} \\
 \hline
 \end{tabular}
-
-\end{document}

@@ -1,0 +1,604 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amssymb} % for \square
+
+% ---------- Shared footer + version control ----------
+\input{tas-footer.tex}
+
+% ---------- Formatting ----------
+\setstretch{1.15}
+\setlist{nosep}
+
+% ---------- Document ----------
+\begin{document}
+
+\pagestyle{tasfooter}
+
+\begin{center}
+    {\Large \textbf{Technical Alignment Superhero (TAS)}}\\[6pt]
+    {\Large \textbf{Onsite Alignment Checklist}}\\[4pt]
+    {\small (Onsite validation aligned with myITprocess standards library export)}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Client Name:} \rule{10cm}{0.4pt}\\[6pt]
+\textbf{Site Location:} \rule{10cm}{0.4pt}\\[6pt]
+\textbf{Visit Date:} \rule{8cm}{0.4pt}\\[6pt]
+\textbf{TAS Name:} \rule{8cm}{0.4pt}\\[6pt]
+\textbf{Primary Contact Onsite:} \rule{7cm}{0.4pt}\\[6pt]
+\textbf{Decision Maker Onsite:} \rule{7cm}{0.4pt}\\
+
+\vspace{0.8cm}
+
+% =====================================================
+\section*{1. Core Infrastructure -- Onsite Validation}
+
+\subsection*{Local Area Network (LAN)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Verify firewall, switches, and WAPs are present, enterprise-grade, and documented\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 2 -- Documentation Review (Core Documentation Objects).}\\
+    \textit{Alignment: Core Infrastructure -- Local Area Network.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Enterprise Firewall(s)
+        \item Enterprise Switches
+        \item Wireless Access Points
+    \end{itemize}
+    \begin{itemize}
+        \item Physically identify each device (model/serial), match against ITGlue records.
+        \item Confirm device roles and locations (MDF/IDF, floor, closet).
+        \item Flag any unmanaged or undocumented network devices.
+    \end{itemize}
+
+    \item $\square$ Validate network configuration backups exist (or confirm process/evidence onsite)\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 4 -- Best Practices (evidence capture).}\\
+    \textit{Alignment: Core Infrastructure -- Local Area Network.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Firewall Configuration Backup
+        \item Switch Configuration Backup
+        \item Wireless Configuration Backup
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm configuration backup method (vendor portal, ControlOne, internal backup).
+        \item Capture evidence (screenshot/log) of backup existence and recency.
+        \item Document where configs are stored and who has access.
+    \end{itemize}
+
+    \item $\square$ Inspect cabling, labeling, and physical network organization\\
+    \textit{Mapped SOP: Step 4 -- Best Practices (photos/screenshots); Step 4 -- Onsite Checklist (validate infrastructure).}\\
+    \textit{Alignment: Core Infrastructure -- Local Area Network.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Cabling
+    \end{itemize}
+    \begin{itemize}
+        \item Check patch panels/rack for labeling, strain, and cable condition.
+        \item Note environmental risks (power, airflow, unauthorized access).
+        \item Photograph rack/closet layout for documentation.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Wide Area Network (WAN)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Confirm internet connectivity meets business needs and is documented correctly\\
+    \textit{Mapped SOP: Step 2 -- ISP \& Connectivity Overview; Step 4 -- Onsite Validation and Discovery.}\\
+    \textit{Alignment: Core Infrastructure -- Wide Area Network.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Internet Connectivity
+        \item Internet Service Provider Documentation
+    \end{itemize}
+    \begin{itemize}
+        \item Verify ISP demarc location, handoff type, and any failover circuits.
+        \item Confirm public IP handling (static vs dynamic) and where it is documented.
+        \item Validate onsite with client: known pain points (drops, latency, dead zones).
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Workstations \& Mobile Devices}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Spot-check endpoint baseline compliance on representative devices\\
+    \textit{Mapped SOP: Step 4 -- Onsite Checklist (validate endpoint coverage); Step 4 -- Best Practices (clarify discrepancies).}\\
+    \textit{Alignment: Core Infrastructure -- Workstations \& Mobile Devices.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Minimum System Specifications
+        \item Workstation Age and Warranty
+        \item Workstation BIOS Settings
+        \item Spare Hardware
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm aging hardware populations and ``problem child'' models onsite.
+        \item Validate BIOS/firmware posture where practical (or identify if unmanaged).
+        \item Ask about spare hardware availability for continuity.
+    \end{itemize}
+
+    \item $\square$ Validate mobile device security and management posture (if applicable)\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 5 -- Reporting (business impact).}\\
+    \textit{Alignment: Core Infrastructure -- Workstations \& Mobile Devices.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Mobile Device Security
+        \item Mobile Device Management
+        \item Bring Your Own Device (BYOD) Usage
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm whether staff use personal devices for work access.
+        \item Verify MDM enrollment approach and enforcement expectations with stakeholder(s).
+        \item Document current state and gaps for vCIO review (do not finalize policy onsite).
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.35cm}
+\textit{Core Infrastructure Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}
+
+% =====================================================
+\newpage
+\section*{2. Server Infrastructure -- Onsite Validation}
+
+\subsection*{Virtual Host (if applicable)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate virtualization host health, redundancy, and management posture\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 5 -- Reporting (infrastructure risks).}\\
+    \textit{Alignment: Server Infrastructure -- Virtual Host.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Host Hardware and Warranty
+        \item Host Software Version and Support
+        \item Host CPU/RAM/HDD Utilization
+        \item Host Capacity Planning
+        \item Host Online Maintenance
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm host model, age, and supportability; capture evidence where possible.
+        \item Validate monitoring coverage and any current alerts.
+        \item Identify single points of failure (single host, single storage, single switch uplink).
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Virtual Guests (Windows) / General Server Validation}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate server inventory and roles match reality\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 2 -- Documentation Review (Server inventory).}\\
+    \textit{Alignment: Server Infrastructure -- Virtual Guests (Windows, General Configuration).}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Server Role
+        \item Mapped Network Drives
+        \item Static Network Configurations
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm server purpose/role (DC, file, application, LoB) with evidence.
+        \item Validate key dependencies and any ``mystery'' servers.
+        \item Confirm IP/DNS settings and whether they match documentation.
+    \end{itemize}
+
+    \item $\square$ Validate server performance, storage health, and patch posture\\
+    \textit{Mapped SOP: Step 4 -- Onsite Checklist (validate systems); Step 5 -- Reporting (risk scoring).}\\
+    \textit{Alignment: Server Infrastructure -- Virtual Guests (Windows, General Configuration).}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Free Disk Space
+        \item Hard Disk Performance
+        \item CPU/RAM/HDD Resource Allocation
+        \item Software Version and Support
+        \item Guest Operating System Support
+    \end{itemize}
+    \begin{itemize}
+        \item Check disk free space thresholds and obvious performance bottlenecks.
+        \item Confirm OS/support status and any high-risk legacy versions.
+        \item Document recurring maintenance issues observed onsite.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Exchange Server (if present)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate Exchange server configuration and supportability (if applicable)\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 5 -- Reporting.}\\
+    \textit{Alignment: Server Infrastructure -- Exchange Server (Virtual, On Premises).}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Exclusive Exchange Role
+        \item SSL Certificate \& SPF Record
+        \item Microsoft Exchange Best Practices Analyzer
+        \item User Authentication
+        \item Capacity Planning
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm Exchange role separation and certificate posture.
+        \item Identify any mail flow or authentication risks requiring vCIO attention.
+        \item Document current state; do not promise remediation timelines onsite.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.35cm}
+\textit{Server Infrastructure Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}
+
+% =====================================================
+\newpage
+\section*{3. Security \& Privacy -- Onsite Validation}
+
+\subsection*{Endpoint Security / Vulnerability \& Patch Management}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Spot-check endpoint protection health and tamper resistance\\
+    \textit{Mapped SOP: Step 4 -- Onsite Checklist (validate endpoint security); Step 4 -- Best Practices (use tool dashboards).}\\
+    \textit{Alignment: Security \& Privacy -- Endpoint Security.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Endpoint Protection Platform (EPP)
+        \item Endpoint Detection \& Response (EDR)
+        \item Application Control / Allowlisting (where applicable)
+        \item Endpoint Security Monitoring
+    \end{itemize}
+    \begin{itemize}
+        \item Validate agent running on sampled devices; confirm policy applied.
+        \item Identify exclusions, disabled protections, or unmanaged endpoints.
+        \item Capture evidence (screenshots) for myITprocess notes.
+    \end{itemize}
+
+    \item $\square$ Validate patching reality vs.\ reports (spot checks)\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 3 -- Pre-Visit Data Gathering (patch review).}\\
+    \textit{Alignment: Security \& Privacy -- Vulnerability \& Patch Management.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Operating System Patching
+        \item Third-Party Application Patching
+        \item Vulnerability Scanning (if applicable)
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm real patch status on sample devices (not just dashboard compliance).
+        \item Identify why patching fails (offline devices, reboots deferred, permissions).
+        \item Document systemic blockers for vCIO/leadership review.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Network \& Web Security}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate firewall rule posture and segmentation at a high level\\
+    \textit{Mapped SOP: Step 4 -- Onsite Checklist (firewall); Step 5 -- Reporting (risk themes).}\\
+    \textit{Alignment: Security \& Privacy -- Network \& Web Security.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Firewall Rules / Configuration Review
+        \item Network Segmentation / VLAN Design (where applicable)
+        \item Secure Remote Access Controls
+    \end{itemize}
+    \begin{itemize}
+        \item Identify overly permissive ``any/any'' rules and unknown inbound forwards.
+        \item Confirm guest Wi-Fi isolation intent where applicable.
+        \item Capture findings as factual observations for vCIO review.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Physical \& Environmental Security}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Inspect server/network storage locations for physical security\\
+    \textit{Mapped SOP: Step 4 -- Best Practices (photos); Step 4 -- Onsite Validation and Discovery.}\\
+    \textit{Alignment: Security \& Privacy -- Physical \& Environmental Security.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Secure IT Areas / Restricted Access
+        \item Environmental Controls (power/temperature) (where applicable)
+        \item Physical Protection of Backup Devices (where applicable)
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm who can access network closets/servers and how access is controlled.
+        \item Note risks: unlocked closets, public areas, no UPS, water exposure.
+        \item Photograph (as allowed) for documentation and evidence.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Security Awareness / Third Party / Risk Management (stakeholder validation)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate security awareness posture via stakeholder interview\\
+    \textit{Mapped SOP: Step 4 -- Best Practices (continuous communication); Step 5 -- Reporting.}\\
+    \textit{Alignment: Security \& Privacy -- Security \& Awareness Training.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Security Awareness Training Program
+        \item Phishing Testing (if applicable)
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm whether training exists, how often, and who is included.
+        \item Record the factual answer; do not promise program rollout onsite.
+    \end{itemize}
+
+    \item $\square$ Validate third-party/vendor access reality\\
+    \textit{Mapped SOP: Step 2 -- Vendor Contacts and Escalation Paths; Step 4 -- Onsite Validation and Discovery.}\\
+    \textit{Alignment: Security \& Privacy -- Third Party Management.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Vendor Access Controls
+        \item Third Party Remote Access Review
+    \end{itemize}
+    \begin{itemize}
+        \item Identify vendors with remote access tools or persistent credentials.
+        \item Confirm whether vendor access is tracked and revoked when no longer needed.
+        \item Document gaps for vCIO-approved recommendations.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.35cm}
+\textit{Security \& Privacy Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}
+
+% =====================================================
+\newpage
+\section*{4. Business Continuity \& Contingency Planning -- Onsite}
+
+\subsection*{Data Backup \& Retention}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate backup scope matches real critical systems and data\\
+    \textit{Mapped SOP: Step 4 -- Onsite Checklist (confirm backup scope); Step 5 -- Reporting (gaps/risks).}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning -- Data Backup \& Retention.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Backup Coverage / Critical Systems Included
+        \item Backup Monitoring / Alerting
+        \item Backup Retention
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm that ``critical'' systems (per client) are included in backups.
+        \item Identify unprotected data locations (NAS shares, LoB app servers, cloud syncs).
+        \item Capture evidence of monitoring/alerts and last successful backups.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Power Management}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate UPS/power protection for critical infrastructure\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 5 -- Reporting.}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning -- Power Management.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item UPS Protection for Servers/Network
+        \item UPS Monitoring / Maintenance (where applicable)
+    \end{itemize}
+    \begin{itemize}
+        \item Identify which devices are protected by UPS (firewall, switches, servers).
+        \item Confirm UPS health indicators (age, batteries, alerts) if visible.
+        \item Note any single power strip / no UPS risks.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Remote Access (continuity implications)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate remote work continuity assumptions onsite (VPN/RDP/remote tools)\\
+    \textit{Mapped SOP: Step 4 -- Best Practices (stakeholder communication); Step 2 -- Documentation Review (remote access).}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning -- Remote Access.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Remote Access Method(s) Defined
+        \item Remote Access Security Controls (coord. with Security \& Privacy)
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm how staff work during outages (home/alternate site) and what breaks first.
+        \item Identify undocumented ``workarounds'' that create risk.
+        \item Document facts; recommendations require vCIO approval.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.35cm}
+\textit{Business Continuity Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}
+
+% =====================================================
+\newpage
+\section*{5. Disaster Response \& Recovery -- Onsite}
+
+\subsection*{Response to Cybersecurity Incidents}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate incident response expectations and escalation chain with stakeholders\\
+    \textit{Mapped SOP: Step 4 -- Best Practices; Step 5 -- Reporting and Recommendations.}\\
+    \textit{Alignment: Disaster Response \& Recovery -- Response to Cybersecurity Incidents.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Incident Response Plan Exists
+        \item Incident Escalation / Communication Chain
+        \item Roles \& Responsibilities During Incidents
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm who makes decisions, who contacts vendors/insurance/legal, and who approves downtime.
+        \item Validate that contact information is current and accessible during an incident.
+        \item Record missing elements as alignment gaps.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.25cm}
+\subsection*{Recover Services Impaired due to Cybersecurity Incidents}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate recovery readiness (restore process understanding + evidence)\\
+    \textit{Mapped SOP: Step 4 -- Onsite Checklist (backups); Step 6 -- Follow-Up (restore validation).}\\
+    \textit{Alignment: Disaster Response \& Recovery -- Recover Services Impaired due to Cybersecurity Incidents.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Recovery Procedures Documented
+        \item Restore Testing Evidence (where applicable)
+        \item Recovery Prioritization (critical systems first)
+    \end{itemize}
+    \begin{itemize}
+        \item Confirm whether restores have been tested and how frequently.
+        \item Identify where recovery procedures live (ITGlue, myITprocess, client binder).
+        \item Document whether recovery prioritization is defined or ad-hoc.
+    \end{itemize}
+
+    \item $\square$ Capture downtime/data-loss expectations as stated by the business (do not set RTO/RPO)\\
+    \textit{Mapped SOP: Step 4 -- Best Practices; Step 5 -- Reporting (business impact).}\\
+    \textit{Alignment: Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Ask: ``How long can you be down before operations are significantly impacted?''
+        \item Ask: ``How much data loss could you tolerate (minutes/hours/days)?''
+        \item Document verbatim responses for vCIO review and formalization.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.35cm}
+\textit{DR \& Recovery Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}
+
+% =====================================================
+\newpage
+\section*{6. Documentation -- Onsite Validation}
+
+\subsection*{Asset Management / Governance / Line of Business}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Update ITGlue documentation with onsite-verified facts\\
+    \textit{Mapped SOP: Step 4 -- Best Practices (update ITGlue); Step 4 -- Step Output.}\\
+    \textit{Alignment: Documentation -- Asset Management / Governance.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item Hardware Asset Inventory
+        \item Network Diagram Accuracy
+        \item Vendor Contacts \& Escalation Paths
+        \item Credential Vault Usage (coord. with Security \& Privacy)
+    \end{itemize}
+    \begin{itemize}
+        \item Update device records (model/serial/location/role) for core infrastructure.
+        \item Update diagrams to match reality (closets, uplinks, ISP demarc).
+        \item Ensure vendor contacts and escalation paths are current.
+    \end{itemize}
+
+    \item $\square$ Validate line-of-business (LoB) application inventory and dependencies\\
+    \textit{Mapped SOP: Step 4 -- Onsite Validation and Discovery; Step 5 -- Reporting (business impact).}\\
+    \textit{Alignment: Documentation -- Line of Business Applications.}\\
+    \textbf{Relevant Standards (Standards Library):}
+    \begin{itemize}
+        \item LoB Application Inventory
+        \item LoB Vendor Contacts / Support Process
+        \item LoB Hosting/Dependency Documentation
+    \end{itemize}
+    \begin{itemize}
+        \item Identify critical LoB systems, where they run, and who supports them.
+        \item Document authentication method (AD/M365/local) and any special requirements.
+        \item Flag unknown dependencies that affect backups and recovery.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.35cm}
+\textit{Documentation Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}
+
+% =====================================================
+\newpage
+\section*{7. Onsite Wrap-Up and Handoff}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Review factual observations with the client (no recommendations)\\
+    \textit{Mapped SOP: Step 4 -- Best Practices; Step 5 -- Reporting (vCIO approval requirement).}
+    \begin{itemize}
+        \item Confirm any unclear facts (device counts, ISP details, app dependencies).
+        \item Do not propose remediation or priorities without vCIO approval.
+    \end{itemize}
+
+    \item $\square$ Ensure all findings, evidence, and notes are captured in myITprocess\\
+    \textit{Mapped SOP: Step 4 -- Step Output; Step 5 -- Reporting and Recommendations.}
+    \begin{itemize}
+        \item Log alignment observations with clear evidence references.
+        \item Tag urgent/high-risk items for vCIO review.
+    \end{itemize}
+
+    \item $\square$ Create remediation tickets where required (do not remediate onsite unless approved)\\
+    \textit{Mapped SOP: Step 4 -- Best Practices (ticket must be created in myITprocess).}
+    \begin{itemize}
+        \item Create the ticket in myITprocess to sync to BMS.
+        \item Include evidence, impacted systems, and client impact notes.
+    \end{itemize}
+
+    \item $\square$ Confirm next steps and reporting expectations\\
+    \textit{Mapped SOP: Step 5 -- Reporting and Recommendations.}
+    \begin{itemize}
+        \item Set expectations for vCIO review and final recommendations delivery.
+        \item Confirm any follow-up access requirements for remediation teams.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.6cm}
+
+\textbf{Onsite Completion Sign-Off}\\[4pt]
+\begin{itemize}[leftmargin=*]
+    \item $\square$ Core infrastructure validated and documented
+    \item $\square$ Server infrastructure validated and documented
+    \item $\square$ Security \& privacy validation completed
+    \item $\square$ Backup/continuity validation completed
+    \item $\square$ DR/IR validation completed
+    \item $\square$ ITGlue updated with onsite corrections
+    \item $\square$ myITprocess findings saved and ready for vCIO review
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{TAS Signature:} \rule{7cm}{0.4pt}\\[12pt]
+\textbf{Date Completed:} \rule{7cm}{0.4pt}
+
+\end{document}

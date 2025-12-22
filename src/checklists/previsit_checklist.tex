@@ -1,0 +1,548 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{amssymb} % for \square
+
+% ---------- Shared footer + version control ----------
+\input{tas-footer.tex}  % defines \fancypagestyle{tasfooter}
+
+% ---------- Formatting ----------
+\setstretch{1.15}
+\setlist{nosep}
+
+% ---------- Document ----------
+\begin{document}
+
+\pagestyle{tasfooter} % activate shared style (page # top-right, version in footer)
+
+\begin{center}
+    {\Large \textbf{Technical Alignment Superhero (TAS)}}\\[6pt]
+    {\Large \textbf{Pre-Visit Alignment Checklist}}\\[4pt]
+    {\small (Remote preparation aligned with myITprocess standards)}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Client Name:} \rule{10cm}{0.4pt}\\[6pt]
+\textbf{Site Location:} \rule{10cm}{0.4pt}\\[6pt]
+\textbf{Planned Visit Date:} \rule{8cm}{0.4pt}\\[6pt]
+\textbf{Prepared By (TAS):} \rule{8cm}{0.4pt}\\
+
+\vspace{1cm}
+
+% =============================================
+\section*{1. Core Infrastructure -- Remote Validation}
+
+\subsection*{Workstations / Endpoints}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Confirm workstation OS versions are recorded and supported\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (RMM Device List); Step 1 -- Define Lifecycle Standards.}\\
+    \textit{Alignment: Core Infrastructure -- Workstations \& Mobile Devices.}
+    \begin{itemize}
+        \item Pull OS version list from Kaseya VSA or RMM.
+        \item Identify endpoints running unsupported or near end-of-life OS versions.
+        \item Flag high-risk systems for onsite confirmation and later alignment questions.
+    \end{itemize}
+
+    \item $\square$ Review workstation patch compliance status\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Security Alerts / RMM).}\\
+    \textit{Alignment: Core Infrastructure -- Workstations \& Mobile Devices.}
+    \begin{itemize}
+        \item Run patch/compliance reports in RMM.
+        \item Identify devices failing patch policies or missing critical security updates.
+        \item Note any groups or locations with recurring patch failures.
+    \end{itemize}
+
+    \item $\square$ Confirm full workstation security stack deployment\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Security Alerts); Step 4 -- Onsite Checklist.}\\
+    \textit{Alignment: Security \& Privacy -- Endpoint Security.}
+    \begin{itemize}
+        \item Compare workstation list vs.\ installed agents (SentinelOne, Huntress, ThreatLocker, SaaS Alerts).
+        \item Identify endpoints missing one or more required security tools.
+        \item Flag gaps to verify onsite and convert into formal alignment findings.
+    \end{itemize}
+
+    \item $\square$ Check workstation lifecycle status against standards\\
+    \textit{Mapped SOP: Step 1 -- Define Lifecycle Standards; Step 3 -- Pre-Visit Data Gathering.}\\
+    \textit{Alignment: Core Infrastructure -- Workstations \& Mobile Devices.}
+    \begin{itemize}
+        \item Identify endpoints older than the agreed lifecycle (e.g., 3--5 years).
+        \item Group aging devices by location and role for later reporting.
+        \item Note candidates for lifecycle-related findings in myITprocess.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\subsection*{Network Infrastructure (Remote Review)}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Verify switch, firewall, and WAP inventory is documented\\
+    \textit{Mapped SOP: Step 2 -- Documentation Review (Core Documentation Objects).}\\
+    \textit{Alignment: Core Infrastructure -- Local Area Network.}
+    \begin{itemize}
+        \item Confirm all core network devices appear in ITGlue.
+        \item Look for obvious gaps (e.g., firewalls or switches without documentation).
+        \item Note devices that require onsite identification or confirmation.
+    \end{itemize}
+
+    \item $\square$ Confirm firmware / software versions are recorded where possible\\
+    \textit{Mapped SOP: Step 2 -- Documentation Review.}\\
+    \textit{Alignment: Core Infrastructure -- Firewalls, Switches, Wireless Access Points.}
+    \begin{itemize}
+        \item Check documentation and management consoles for version info.
+        \item Identify devices with unknown firmware or OS versions.
+        \item Mark items for onsite validation.
+    \end{itemize}
+
+    \item $\square$ Validate ControlOne or firewall management status remotely\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Security Alerts / Firewall Review).}\\
+    \textit{Alignment: Security \& Privacy -- Network Security.}
+    \begin{itemize}
+        \item Confirm firewalls are present in ControlOne or equivalent management platform.
+        \item Verify firewalls appear online and licensed.
+        \item Note any sites or firewalls not under Tekie Geek management.
+    \end{itemize}
+
+    \item $\square$ Confirm WLAN SSIDs and authentication methods are documented\\
+    \textit{Mapped SOP: Step 2 -- Documentation Review (Wireless / Network).}\\
+    \textit{Alignment: Core Infrastructure -- Wireless Access Points.}
+    \begin{itemize}
+        \item Verify SSIDs, VLANs, and authentication methods are recorded.
+        \item Identify unknown or guest SSIDs without documentation.
+        \item Flag items that require onsite validation.
+    \end{itemize}
+
+    \item $\square$ Check ISP information and WAN details in documentation\\
+    \textit{Mapped SOP: Step 2 -- ISP \& Connectivity Overview.}\\
+    \textit{Alignment: Core Infrastructure -- Wide Area Network.}
+    \begin{itemize}
+        \item Confirm provider, circuit type, account number, and static IPs are recorded.
+        \item Validate documented bandwidth and failover arrangements.
+        \item Note missing or conflicting ISP information.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\subsection*{Configuration Baselines}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate remote access / VPN configuration documentation\\
+    \textit{Mapped SOP: Step 2 -- Documentation Review.}\\
+    \textit{Alignment: Security \& Privacy / Core Infrastructure.}
+    \begin{itemize}
+        \item Check that VPN methods, portals, and authentication are documented.
+        \item Confirm which users or groups have remote access.
+        \item Flag undocumented methods for onsite questioning.
+    \end{itemize}
+
+    \item $\square$ Confirm domain naming and baseline configuration are documented\\
+    \textit{Mapped SOP: Step 1 -- Alignment Standards; Step 2 -- Documentation Review.}\\
+    \textit{Alignment: Server Infrastructure / Core Infrastructure.}
+    \begin{itemize}
+        \item Review AD domain name, sites, and OU / GPO structure at a high level.
+        \item Confirm at least one baseline configuration standard is documented.
+        \item Note gaps to validate during onsite AD / server checks.
+    \end{itemize}
+
+    \item $\square$ Validate RMM agent deployment completeness\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (RMM Device List).}\\
+    \textit{Alignment: Core Infrastructure -- Workstations \& Mobile Devices.}
+    \begin{itemize}
+        \item Compare known device counts from documentation with RMM enrollment.
+        \item Identify unmonitored devices and potential shadow IT.
+        \item Flag discrepancies for onsite investigation.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\textit{Core Infrastructure Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}\\[6pt]
+
+% =============================================
+\newpage
+\section*{2. Server Infrastructure -- Remote Readiness}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate server inventory, roles, and naming conventions\\
+    \textit{Mapped SOP: Step 2 -- Documentation Review (Server Inventory); Step 3 -- RMM Device List.}\\
+    \textit{Alignment: Server Infrastructure.}
+    \begin{itemize}
+        \item Review documented server list and compare against RMM.
+        \item Confirm roles (DC, file, application, virtualization host) are clearly indicated.
+        \item Note servers with unclear or undocumented purpose.
+    \end{itemize}
+
+    \item $\square$ Check server patch and compliance status\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Security Alerts / Patch).}\\
+    \textit{Alignment: Server Infrastructure; Security \& Privacy.}
+    \begin{itemize}
+        \item Run server patch compliance reports.
+        \item Identify servers missing critical security or OS updates.
+        \item Record high-risk servers for onsite follow-up and alignment scoring.
+    \end{itemize}
+
+    \item $\square$ Validate virtualization platform configuration remotely (if applicable)\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Network Diagrams / Server Review).}\\
+    \textit{Alignment: Server Infrastructure -- Virtualization.}
+    \begin{itemize}
+        \item Confirm host names, cluster membership, and number of VMs.
+        \item Identify hosts with resource or redundancy concerns from monitoring.
+        \item Note areas requiring onsite validation (storage, failover, etc.).
+    \end{itemize}
+
+    \item $\square$ Confirm Active Directory health from remote tools\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering.}\\
+    \textit{Alignment: Server Infrastructure -- Directory Services.}
+    \begin{itemize}
+        \item Review AD replication, errors, and event logs at a high level.
+        \item Identify trends in locked-out or disabled accounts.
+        \item Note health issues that may affect alignment scoring.
+    \end{itemize}
+
+    \item $\square$ Check server lifecycle status vs.\ standards\\
+    \textit{Mapped SOP: Step 1 -- Define Lifecycle Standards; Step 3 -- Pre-Visit Data Gathering.}\\
+    \textit{Alignment: Server Infrastructure.}
+    \begin{itemize}
+        \item Identify servers at or beyond lifecycle thresholds (e.g., 5 years).
+        \item Group by criticality (domain controllers, file servers, etc.).
+        \item Flag for vCIO review within alignment scoring.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\textit{Server Infrastructure Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}\\[6pt]
+
+% =============================================
+\newpage
+\section*{3. Security and Privacy -- Remote Readiness}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate MFA enforcement for admin and privileged accounts\\
+    \textit{Mapped SOP: Step 3 -- M365 Tenant Review.}\\
+    \textit{Alignment: Security \& Privacy -- Identity \& Access Control.}
+    \begin{itemize}
+        \item Review MFA settings for global admins and other privileged roles.
+        \item Identify accounts without MFA enabled where required.
+        \item Note exceptions to review with vCIO and client.
+    \end{itemize}
+
+    \item $\square$ Confirm conditional access policies are present and scoped appropriately (if applicable)\\
+    \textit{Mapped SOP: Step 3 -- M365 Tenant Review.}\\
+    \textit{Alignment: Security \& Privacy.}
+    \begin{itemize}
+        \item Check whether conditional access policies are configured.
+        \item Note coverage (all users, admins only, sensitive groups, etc.).
+        \item Flag gaps relative to Tekie Geek standards.
+    \end{itemize}
+
+    \item $\square$ Validate privileged role assignments in M365 / Azure AD\\
+    \textit{Mapped SOP: Step 3 -- M365 Tenant Review.}\\
+    \textit{Alignment: Security \& Privacy -- Identity Governance.}
+    \begin{itemize}
+        \item Review membership of Global Admin, Exchange Admin, Security Admin, and similar roles.
+        \item Identify shared or non-human accounts with excessive privileges.
+        \item Note misalignments for onsite and vCIO review.
+    \end{itemize}
+
+    \item $\square$ Confirm EDR/AV/ThreatLocker licensing is active and aligned with contracts\\
+    \textit{Mapped SOP: Step 3 -- Security Alerts.}\\
+    \textit{Alignment: Security \& Privacy -- Endpoint Security.}
+    \begin{itemize}
+        \item Confirm license counts vs.\ protected endpoints.
+        \item Spot gaps between endpoint inventory and active protection.
+        \item Note under- or over-licensed scenarios.
+    \end{itemize}
+
+    \item $\square$ Validate SaaS Alerts configuration and high-level alert trends\\
+    \textit{Mapped SOP: Step 3 -- Security Alerts.}\\
+    \textit{Alignment: Security \& Privacy -- Cloud / SaaS Security.}
+    \begin{itemize}
+        \item Confirm key integrations (M365, Azure, etc.) are active.
+        \item Review recent critical or high alerts.
+        \item Identify patterns that should influence onsite focus.
+    \end{itemize}
+
+    \item $\square$ Confirm firewall / security gateway subscriptions are active\\
+    \textit{Mapped SOP: Step 3 -- Security Alerts.}\\
+    \textit{Alignment: Security \& Privacy -- Network Security.}
+    \begin{itemize}
+        \item Check licensing status for firewall security services (IDS/IPS, content filter, etc.).
+        \item Note expired or expiring subscriptions.
+        \item Flag for onsite validation and vCIO discussion.
+    \end{itemize}
+
+    \item $\square$ Validate disk encryption standards on mobile or portable devices (where visible)\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Security posture).}\\
+    \textit{Alignment: Security \& Privacy -- Endpoint Security.}
+    \begin{itemize}
+        \item Review policies for BitLocker / FileVault or equivalent.
+        \item Note any obvious gaps in encryption enforcement.
+    \end{itemize}
+
+    \item $\square$ Confirm email security controls (filtering / ATP) are active\\
+    \textit{Mapped SOP: Step 3 -- M365 Tenant Review.}\\
+    \textit{Alignment: Security \& Privacy -- Email \& Collaboration Security.}
+    \begin{itemize}
+        \item Validate spam/phishing protection and advanced threat protection where applicable.
+        \item Identify mailboxes or domains that bypass security controls.
+    \end{itemize}
+
+    \item $\square$ Confirm password policy exists and is enforced\\
+    \textit{Mapped SOP: Step 3 -- Server / M365 review.}\\
+    \textit{Alignment: Security \& Privacy -- Identity Security.}
+    \begin{itemize}
+        \item Review AD / M365 password policy settings.
+        \item Check compliance with Tekie Geek baseline or client-specific standards.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\textit{Security \& Privacy Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}\\[6pt]
+
+% =============================================
+\newpage
+\section*{4. Business Continuity \& Contingency Planning -- Remote}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate backup configuration and coverage\\
+    \textit{Mapped SOP: Step 3 -- Backup Reports.}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning.}
+    \begin{itemize}
+        \item Confirm all critical servers and data sets are enrolled in backups.
+        \item Identify gaps (e.g., new systems not yet protected).
+    \end{itemize}
+
+    \item $\square$ Review recent backup success / failure history\\
+    \textit{Mapped SOP: Step 3 -- Backup Reports; Step 4 -- Onsite Checklist.}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning.}
+    \begin{itemize}
+        \item Identify recurring failures or warnings.
+        \item Note systems at risk due to backup instability.
+    \end{itemize}
+
+    \item $\square$ Confirm backup alerting is configured\\
+    \textit{Mapped SOP: BCCP standards; Step 3 -- Backup Reports.}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning.}
+    \begin{itemize}
+        \item Check whether backup failures generate alerts or tickets.
+        \item Note any missing integration with support processes.
+    \end{itemize}
+
+    \item $\square$ Validate retention configuration against standards\\
+    \textit{Mapped SOP: BCCP standards; Step 3 -- Backup Reports.}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning.}
+    \begin{itemize}
+        \item Review retention policies for servers and critical workloads.
+        \item Identify deviations from Tekie Geek defaults or client requirements.
+    \end{itemize}
+
+    \item $\square$ Check for recorded backup or restore test history\\
+    \textit{Mapped SOP: BCCP \& DRR standards; Step 3 -- Backup Reports; Step 6 -- Follow-Up.}\\
+    \textit{Alignment: Business Continuity \& Contingency Planning; Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Look for recent restore tests or drill notes.
+        \item Flag environments with no testing history.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\textit{Business Continuity Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}\\[6pt]
+
+% =============================================
+\newpage
+\section*{5. Disaster Response \& Recovery -- Remote}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Confirm existence of a documented DR plan\\
+    \textit{Mapped SOP: Step 2 -- Documentation Review.}\\
+    \textit{Alignment: Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Verify that a DR or incident response plan exists in documentation.
+        \item Note clients with no documented plan.
+    \end{itemize}
+
+    \item $\square$ Confirm prioritized systems and recovery order are defined\\
+    \textit{Mapped SOP: DRR standards; Step 5 -- Reporting and Recommendations.}\\
+    \textit{Alignment: Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Check documentation for a defined critical systems list.
+        \item Note missing or unclear recovery priorities.
+    \end{itemize}
+
+    \item $\square$ Verify communication / escalation chain is documented for DR events\\
+    \textit{Mapped SOP: DRR standards; Step 2 -- Documentation Review.}\\
+    \textit{Alignment: Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Confirm who is notified, in what order, and by what mechanism.
+        \item Flag unclear or missing escalation paths.
+    \end{itemize}
+
+    \item $\square$ Confirm RTO / RPO expectations are documented (if available)\\
+    \textit{Mapped SOP: DRR standards; Step 5 -- Reporting.}\\
+    \textit{Alignment: Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Review DR documentation or agreements for RTO/RPO.
+        \item Note when expectations are not documented or unrealistic.
+    \end{itemize}
+
+    \item $\square$ Check DR testing schedule or historical tests recorded\\
+    \textit{Mapped SOP: DRR standards; Step 6 -- Follow-Up and Continuous Improvement.}\\
+    \textit{Alignment: Disaster Response \& Recovery.}
+    \begin{itemize}
+        \item Look for evidence of DR tests and their results.
+        \item Flag environments with no DR testing.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\textit{DR \& Recovery Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}\\[6pt]
+
+% =============================================
+\newpage
+\section*{6. Documentation -- Remote Validation}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Validate network diagram accuracy against tools\\
+    \textit{Mapped SOP: Step 2 -- Core Documentation Objects; Step 3 -- Network Diagrams.}\\
+    \textit{Alignment: Documentation; Core Infrastructure.}
+    \begin{itemize}
+        \item Compare network diagrams to RMM, firewall config, and ISP information.
+        \item Note mismatches and unknown or undocumented segments.
+    \end{itemize}
+
+    \item $\square$ Validate asset inventory completeness\\
+    \textit{Mapped SOP: Step 2 -- Core Documentation Objects.}\\
+    \textit{Alignment: Documentation.}
+    \begin{itemize}
+        \item Confirm that servers, endpoints, and network devices are represented.
+        \item Identify large groups of undocumented assets.
+    \end{itemize}
+
+    \item $\square$ Confirm licensing and subscription documentation exists\\
+    \textit{Mapped SOP: Documentation and BCCP standards.}\\
+    \textit{Alignment: Documentation; Business Continuity.}
+    \begin{itemize}
+        \item Verify that key licenses (M365, security tools, line-of-business apps) are documented.
+        \item Note licenses that are unknown, unmanaged, or expiring.
+    \end{itemize}
+
+    \item $\square$ Validate credentials are stored securely in an approved vault\\
+    \textit{Mapped SOP: Documentation and Security \& Privacy standards.}\\
+    \textit{Alignment: Documentation; Security \& Privacy.}
+    \begin{itemize}
+        \item Confirm use of Passportal or equivalent credential vault.
+        \item Identify credentials documented in insecure locations (notes, shared files, etc.).
+    \end{itemize}
+
+    \item $\square$ Confirm vendor support details and escalation paths documented\\
+    \textit{Mapped SOP: Step 2 -- Vendor Contacts and Escalation Paths.}\\
+    \textit{Alignment: Documentation.}
+    \begin{itemize}
+        \item Ensure primary vendors and support methods are recorded.
+        \item Note missing or outdated vendor information.
+    \end{itemize}
+
+    \item $\square$ Confirm major policies and procedures are referenced and linked\\
+    \textit{Mapped SOP: Documentation standards; Step 6 -- Continuous Improvement.}\\
+    \textit{Alignment: Documentation.}
+    \begin{itemize}
+        \item Check for IT policies, acceptable use, security, and DR references.
+        \item Note missing or outdated policy references.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.3cm}
+\textit{Documentation Notes:}\\[4pt]
+\rule{\textwidth}{0.4pt}\\[6pt]
+
+% =============================================
+\newpage
+\section*{7. Pre-Visit Internal Coordination}
+
+\begin{itemize}[leftmargin=*]
+
+    \item $\square$ Identify gaps requiring onsite verification\\
+    \textit{Mapped SOP: Step 2 -- Internal Planning Checklist; Step 3 -- Onsite Checklist Preparation.}
+    \begin{itemize}
+        \item List documentation gaps and high-risk items to verify onsite.
+        \item Group by area (infrastructure, security, backup, documentation).
+    \end{itemize}
+
+    \item $\square$ Prepare specific questions for client and technical contacts\\
+    \textit{Mapped SOP: Step 2 -- Client Outreach; Step 4 -- Best Practices.}
+    \begin{itemize}
+        \item Draft targeted questions about access, business context, and known exceptions.
+        \item Note questions that must be asked onsite vs.\ prior to the visit.
+    \end{itemize}
+
+    \item $\square$ Draft preliminary observations for vCIO alignment discussion\\
+    \textit{Mapped SOP: Step 5 -- Reporting and Recommendations.}
+    \begin{itemize}
+        \item Summarize potential risk themes and lifecycle issues.
+        \item Note where business context from vCIO or client is required.
+    \end{itemize}
+
+    \item $\square$ Pre-fill alignment tool (myITprocess) with known Yes / No / Unknown values\\
+    \textit{Mapped SOP: Step 3 -- Pre-Visit Data Gathering (Pre-Fill Alignment Tool).}
+    \begin{itemize}
+        \item Answer standards where evidence is clear and documented.
+        \item Mark ``Unknown'' wherever onsite work is needed.
+        \item Attach notes or references where helpful.
+    \end{itemize}
+
+    \item $\square$ Confirm onsite schedule, access requirements, and stakeholders\\
+    \textit{Mapped SOP: Step 2 -- Client Planning and Scheduling; Step 2 -- Client Outreach.}
+    \begin{itemize}
+        \item Ensure date, time, access, and onsite attendees are all confirmed and documented.
+        \item Record this information in myITprocess and internal calendars.
+    \end{itemize}
+
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Pre-Visit Readiness Sign-Off}\\[4pt]
+\begin{itemize}[leftmargin=*]
+    \item $\square$ Core infrastructure review completed
+    \item $\square$ Server infrastructure review completed
+    \item $\square$ Security \& privacy review completed
+    \item $\square$ Business continuity \& DR status reviewed
+    \item $\square$ Documentation review completed
+    \item $\square$ Alignment tool pre-filled with known / unknown items
+    \item $\square$ Onsite schedule, access, and stakeholders confirmed
+\end{itemize}
+
+\vspace{0.5cm}
+\textbf{TAS Signature:} \rule{7cm}{0.4pt}\\[12pt]
+\textbf{Date Completed:} \rule{7cm}{0.4pt}
+
+\end{document}

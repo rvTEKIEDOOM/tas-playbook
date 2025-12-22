@@ -1,0 +1,87 @@
+% playbook.tex
+% Main compiled entrypoint for the TAS Playbook
+% Folder structure (repo root):
+% - playbook.tex
+% - tas-footer.tex
+% - src/sop/tas-sop.tex
+% - src/checklists/previsit_checklist.tex
+% - src/checklists/onsite_checklist.tex
+% - src/images/tekiegeeklogo.png
+
+\documentclass[12pt]{article}
+
+% ---------- Packages (loaded ONCE here) ----------
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+\usepackage{graphicx}   % images (logo, screenshots)
+\usepackage{hyperref}   % clickable ToC links
+\usepackage{xcolor}     % colors
+\usepackage{soul}       % \hl highlighting
+\usepackage{tcolorbox}  % email formatting blocks (SOP)
+\usepackage{amssymb}    % \square checkboxes
+\usepackage{longtable}  % safer tables across pages (optional but helpful)
+
+% ---------- Global formatting ----------
+\setstretch{1.15}
+\setlist{nosep}
+
+% ---------- Image path ----------
+% Allows included files to use \includegraphics{tekiegeeklogo.png}
+\graphicspath{{src/images/}}
+
+% ---------- Shared header/footer + version control ----------
+\input{tas-footer.tex} % defines \fancypagestyle{tasfooter} + version vars
+
+% ---------- Document ----------
+\begin{document}
+\pagestyle{tasfooter}
+
+% ---------- Playbook Title Page ----------
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+
+    \includegraphics[width=0.55\textwidth]{tekiegeeklogo.png}\\[1.2cm]
+
+    {\LARGE \textbf{Technical Alignment Superhero (TAS)}}\\[6pt]
+    {\LARGE \textbf{Playbook}}\\[10pt]
+
+    {\large Tekie Geek}\\[14pt]
+
+    \vfill
+
+    {\small
+    Technical Alignment Superhero (TAS) Documents · Version \tasversion\\
+    Last Updated: \taslastupdated
+    }
+
+    \vspace*{1cm}
+\end{titlepage}
+
+% ---------- Table of Contents ----------
+\tableofcontents
+\newpage
+
+% ============================================================
+% NOTE:
+% The included files should NOT contain:
+% - \documentclass
+% - \usepackage{...}
+% - \begin{document} / \end{document}
+% - \pagestyle{...}
+%
+% They should contain only content (sections/subsections/etc.)
+% ============================================================
+
+% ---------- SOP (Governing Backbone) ----------
+\include{src/sop/tas-sop}
+
+% ---------- Checklists ----------
+\include{src/checklists/previsit_checklist}
+\include{src/checklists/onsite_checklist}
+
+\end{document}
