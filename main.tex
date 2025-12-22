@@ -1,0 +1,455 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{tcolorbox} % For email formatting
+\usepackage{graphicx}  % For logo image
+\usepackage{hyperref}  % For clickable TOC links
+\usepackage{xcolor, soul}
+
+% ---------- Shared footer + version control ----------
+\input{tas-footer.tex}  % defines \fancypagestyle{tasfooter}
+
+% ---------- Formatting ----------
+\setstretch{1.15}
+\setlist{nosep}
+
+% ---------- Document ----------
+\begin{document}
+
+% ---------- Logo ----------
+\begin{center}
+\includegraphics[width=0.5\textwidth]{TekieGeekLogo.png} \\
+\vspace{0.5cm}
+{\LARGE \textbf{Technical Alignment Superhero (TAS) Standard Operating Procedures}}
+\end{center}
+\thispagestyle{empty} % no header/footer on title page
+
+\vspace{0.5cm}
+\tableofcontents
+\newpage
+
+% Activate shared TAS page style (page number at top, version in footer)
+\pagestyle{tasfooter}
+
+% ---------- Job Definitions ----------
+\section*{Role Definitions}
+
+\subsection*{Technical Alignment Superhero (TAS)}
+The TAS is responsible for executing technical assessments, validating client environments, documenting findings, and preparing observations for review. The TAS ensures that all technical aspects of the client environment are accurate, up-to-date, and aligned with Tekie Geek standards. The TAS may recommend actions for remediation internally but does \textbf{not} independently present or finalize strategic recommendations to the client.
+
+\subsection*{vCIO (Virtual Chief Information Officer)}
+The vCIO is responsible for reviewing TAS findings, finalizing alignment scores, prioritizing risks based on business impact, and approving or refining strategic recommendations before they are communicated to the client. The vCIO ensures that all recommendations align with business objectives and client-specific constraints. TAS findings are considered a foundational input for the vCIO.
+
+\newpage
+
+% ---------- Step 1 ----------
+\section{Pre-Assessment Prep Work}
+
+\textbf{Goal:} Establish the framework, standards, and tools required to perform a consistent and objective technical alignment review. Ensure readiness prior to engaging in any client-specific evaluation. No client-specific findings or alignment gaps should be identified during this step.
+
+\subsection{Define Alignment Standards}
+
+Prior to reviewing any client environment, alignment standards must be defined and approved in myITprocess. These standards will be used later to perform a formal alignment assessment once accurate and complete information has been validated.
+
+Each standard \textbf{must be phrased as a yes/no question} with no room for ambiguity.
+
+\textbf{Rule:} If a standard cannot be definitively answered with ``Yes'' or ``No,'' it must be rewritten.
+
+\subsubsection{Technology Standards (Examples)}
+
+\begin{enumerate}
+    \item Are all endpoints running a supported OS version approved by Tekie Geek?
+    \item Are all endpoints fully patched with the latest OS and security updates?
+    \item Do all endpoints have the full security stack deployed based on the client’s current contract (SentinelOne, Huntress, ThreatLocker, SaaS Alerts)?
+    \item Are all servers and required endpoints included in a monitored and verified backup solution (Datto BCDR, Datto Backup for PCs)?
+    \item Are all firewalls:
+    \begin{itemize}
+        \item Supported by the vendor (ControlOne)?
+        \item Actively licensed?
+        \item Managed and monitored by Tekie Geek?
+    \end{itemize}
+\end{enumerate}
+
+\subsection{Define Lifecycle Standards}
+
+Lifecycle standards must be defined prior to assessment to ensure consistent and objective evaluation of client hardware and infrastructure.
+
+\begin{itemize}
+    \item \textbf{Workstations:} 3--5 years
+    \item \textbf{Servers:} 5 years
+    \item \textbf{Firewalls:} 3--5 years
+\end{itemize}
+
+Lifecycle standards should be applied consistently across all clients unless otherwise documented due to regulatory, operational, or business-specific requirements.
+
+\subsection{Finalize Alignment Tool Structure}
+
+\subsubsection{Categories}
+
+Define the core alignment categories to be used during assessment:
+
+\begin{itemize}
+    \item Infrastructure
+    \item Security
+    \item Backup and Disaster Recovery
+    \item Endpoint Management
+    \item Network and Connectivity
+    \item Documentation
+\end{itemize}
+
+\subsubsection{Risk Scoring}
+
+Define a standardized risk scoring methodology that is simple, consistent, and easily understood by both technical and non-technical stakeholders. Note: TAS collects observations and initial scoring of yes or no(aligned or not aligned); final risk scoring is approved by the vCIO.
+
+\subsubsection{Notes Format}
+\hl{NEED TO DEFINE THIS PORTION A BIT BETTER}
+
+All sections of the technical alignment review \textbf{must} have notes corresponding with the 
+
+\subsection{Step 1 Output}
+
+\begin{itemize}
+    \item A finalized set of alignment and lifecycle standards
+    \item A finalized alignment tool structure ready for use in myITprocess
+    \item Clear readiness to begin client-specific planning and scheduling
+\end{itemize}
+
+\newpage
+
+% ---------- Step 2 ----------
+\section{Client Planning and Scheduling}
+
+\textbf{Goal:} Ensure the TAS arrives onsite with appropriate context, access, stakeholders, and priorities. Plan the engagement and identify areas requiring onsite validation. All meetings must be documented in myITprocess using the scheduling feature.
+
+\subsection{Internal Planning Checklist}
+
+\begin{itemize}
+    \item Review current documentation in ITGlue
+    \item Review open risks in myITprocess
+    \item Review ticket trends in BMS from the previous 30--90 days
+    \item Identify areas requiring onsite validation or clarification
+    \item Confirm the primary technical contact
+    \item Confirm the business decision-maker (owner, Executive Director, COO, etc.)
+\end{itemize}
+
+\subsection{Client Outreach}
+
+\begin{itemize}
+    \item Introduce the TAS role and responsibilities
+    \item Explain the purpose and objectives of the onsite visit
+    \item Describe benefits to the client, including improved IT alignment, risk mitigation, and strategic recommendations
+    \item Discuss logistics: duration, required attendees, access requirements
+    \item Outline follow-up process and reporting expectations
+    \item Provide a high-level agenda if appropriate
+\end{itemize}
+
+\subsubsection{Boilerplate Email Example}
+\hl{I HATE THIS BOILERPLATE; NEED TO CHANGE}
+
+\begin{tcolorbox}[colback=gray!10, colframe=gray!70, boxrule=0.8pt, arc=4pt, left=6pt, right=6pt]
+\raggedright
+
+\textbf{Subject:} Upcoming Technical Alignment Review
+
+\vspace{6pt}
+
+Hi [Client Name],
+
+\vspace{6pt}
+
+I hope this message finds you well. My name is [Your Name], and I am your Technical Alignment Superhero (TAS) with Tekie Geek. My role is to help ensure your IT environment is aligned with best practices, well-documented, and optimized to support your business objectives.
+
+\vspace{6pt}
+
+As part of this engagement, I will be conducting an onsite Technical Alignment Review at your location on [Proposed Date]. The purpose of this visit is to:
+
+\begin{itemize}
+  \item Review and validate your current IT environment
+  \item Identify opportunities to improve efficiency, security, and lifecycle management
+  \item Ensure documentation is complete and accurate
+  \item Provide actionable recommendations aligned with your business needs (to be finalized by vCIO)
+\end{itemize}
+
+The visit is designed to be collaborative, and I will work with your team to gather information efficiently without disrupting day-to-day operations. To help us prepare, it would be helpful to confirm:
+
+\begin{itemize}
+  \item Primary technical contact(s) for the visit
+  \item Key decision-makers who should be included in discussions
+  \item Any specific areas you’d like us to focus on
+  \item Access requirements or scheduling considerations
+\end{itemize}
+
+Following the visit, I will provide a summary of observations and recommendations to help guide your IT strategy under vCIO review.
+
+\vspace{6pt}
+
+Best regards,\\
+[Your Name]\\
+Technical Alignment Superhero\\
+
+\end{tcolorbox}
+
+\subsection{Documentation Review (ITGlue)}
+
+Review ITGlue to build familiarity with the client environment. Missing or incomplete documentation should be treated as a planning consideration rather than a formal alignment finding.
+
+\subsubsection{ISP \& Connectivity Overview}
+
+\begin{itemize}
+    \item Primary ISP provider
+    \item Secondary ISP provider (if applicable)
+    \item Link type (fiber, coax, DSL, etc.)
+    \item Account number(s)
+    \item Security codes or PINs
+    \item Upload and download speeds
+    \item Firewall make and model
+    \item Relevant public IP addresses (static or dynamic)
+\end{itemize}
+
+\subsubsection{Core Documentation Objects to Review}
+
+\begin{itemize}
+    \item Network diagram (logical/physical)
+    \item Firewall documentation and configuration
+    \item Server inventory (physical/virtual)
+    \item Endpoint inventory
+    \item Backup configuration and scope (Datto BCDR, Datto Backup for PCs)
+    \item M365 / cloud tenant documentation
+    \item Passportal credentials
+    \item Vendor contacts and escalation paths
+\end{itemize}
+
+\subsection{Step 2 Output}
+
+\begin{itemize}
+    \item Clear engagement plan and onsite agenda
+    \item Confirmed client stakeholders and points of contact
+    \item List of items requiring onsite validation
+    \item Readiness to proceed with onsite validation and discovery
+\end{itemize}
+
+\newpage
+
+% ---------- Step 3 ----------
+\section{Pre-Visit Data Gathering}
+
+\textbf{Goal:} Minimize time onsite by doing thorough homework beforehand. Ensure the TAS arrives with accurate, up-to-date information and a clear action plan. No formal alignment findings are generated during this phase.
+
+\subsection{Pre-Visit Checklist}
+
+\begin{itemize}
+    \item \textbf{RMM Device List (Kaseya VSA):} Confirm current endpoints and server population
+    \item \textbf{Backup Reports (Datto BCDR / Datto Backup for PCs / Kaseya BMS):} Analyze recent backup jobs
+    \item \textbf{Security Alerts (SentinelOne, Huntress, ThreatLocker, SaaS Alerts):} Review antivirus, firewall, and endpoint alerts
+    \item \textbf{M365 Tenant Review:} Examine configuration, security, license usage, and audit logs
+    \item \textbf{Network Diagrams (if available):} Validate or supplement existing diagrams
+    \item \textbf{Pre-Fill Alignment Tool (myITprocess):} Input known information and preliminary observations
+    \item \textbf{Onsite Checklist:} Prepare physical or digital checklist for validation and documentation
+\end{itemize}
+
+\subsection{Step 3 Output}
+
+\begin{itemize}
+    \item Updated and validated inventory of monitored devices
+    \item Awareness of backup health and potential risks
+    \item Understanding of recent or active security issues
+    \item Insight into the client’s cloud environment posture
+    \item Pre-populated alignment tool ready for onsite validation
+    \item Clear, actionable checklist for the onsite visit
+\end{itemize}
+
+\newpage
+% ---------- Step 4 ----------
+\section{Onsite Validation and Discovery}
+
+\textbf{Goal:} Validate pre-collected information, gather missing data, and identify alignment gaps for formal reporting. Ensure the client environment is accurately documented in ITGlue and myITprocess.
+
+\subsection{Onsite Checklist}
+
+\begin{itemize}
+    \item Validate endpoint and server inventory via Kaseya VSA
+    \item Confirm backup success and alert status (Datto BCDR, Datto Backup for PCs, Kaseya BMS)
+    \item Validate endpoint security coverage (SentinelOne, Huntress, ThreatLocker, SaaS Alerts)
+    \item Check firewall configuration and management status (ControlOne)
+    \item Confirm ransomware protection status (Canauri)
+    \item Verify cloud tenant configuration (M365) and license usage
+    \item Update ITGlue documentation with any missing or corrected items
+    \item Log onsite findings in myITprocess for traceability
+\end{itemize}
+
+\subsection{Best Practices}
+
+\begin{itemize}
+    \item Take photos or screenshots of critical systems for documentation
+    \item Use tool dashboards (Kaseya VSA, Huntress, SentinelOne) to quickly validate system health
+    \item Tag and prioritize high-risk technical concerns in myITprocess for vCIO review
+    \item Maintain continuous communication with client contacts to clarify discrepancies
+    \item If remediation is required, a ticket \textbf{must} be created in myITprocess. This will automatically generate a corresponding ticket in BMS for the IT Support team to perform remediation.
+    \item TAS is responsible for capturing and validating factual data; the vCIO will prioritize, approve, and communicate any strategic recommendations
+\end{itemize}
+
+\subsection{Step 4 Output}
+
+\begin{itemize}
+    \item Verified and updated documentation in ITGlue
+    \item Comprehensive alignment observations logged in myITprocess
+    \item Preliminary list of alignment gaps for vCIO review
+    \item Alignment reviews must be completed on the same day as the onsite visit unless explicitly approved by leadership
+\end{itemize}
+
+\newpage
+
+% ---------- Step 5 ----------
+\section{Reporting and Recommendations}
+
+\textbf{Goal:} Produce an actionable alignment report summarizing observations, gaps, risks, and recommended remediations for vCIO review.
+
+\subsection{Report Components}
+
+\begin{itemize}
+    \item Executive Summary: Key findings and technical overview
+    \item Detailed Findings: Infrastructure, Security, Backup, Endpoint Management, Network Connectivity, Documentation
+    \item Remediation Recommendations: Initial TAS recommendations captured; final recommendations must be reviewed and approved by the vCIO before client delivery
+    \item Risk Scoring: Preliminary risk scoring done by TAS, finalized by the vCIO based on business impact and urgency
+    \item Visuals: Diagrams, screenshots, and supporting evidence from ITGlue, Kaseya, Datto, and security dashboards
+\end{itemize}
+
+\subsection{Best Practices}
+
+\begin{itemize}
+    \item Use myITprocess to track remediation actions and statuses
+    \item Reference screenshots or logs from SentinelOne, Huntress, Datto, and Canauri as evidence
+    \item Ensure findings are understandable by both technical and executive audiences
+    \item TAS must \textbf{never} present recommendations directly to the client without vCIO approval
+    \item vCIO validates recommendations and may adjust priorities or approach based on business context
+\end{itemize}
+
+\subsection{Step 5 Output}
+
+\begin{itemize}
+    \item Finalized alignment report approved by vCIO
+    \item myITprocess updated with finalized risks and follow-up actions
+\end{itemize}
+
+\newpage
+
+% ---------- Step 6 ----------
+\section{Follow-Up and Continuous Improvement}
+
+\textbf{Goal:} Ensure recommendations are implemented and continuously improve the alignment process.
+
+\subsection{Follow-Up Checklist}
+
+\begin{itemize}
+    \item Confirm remediation completion via myITprocess
+    \item Re-validate systems using Kaseya VSA
+    \item Confirm backup success and restore capability (Datto)
+    \item Verify security coverage remains active and compliant
+    \item Update ITGlue documentation with final state
+\end{itemize}
+
+\subsection{Best Practices}
+
+\begin{itemize}
+    \item Schedule recurring alignment reviews in myITprocess \hl{NOTE: not sure if you can actually schedule a meeting without a finding in myITprocess; didn't work when I tried}
+    \item Capture lessons learned to refine future alignment standards
+    \item TAS ensures all technical actions are completed and documented
+    \item vCIO reviews final outcomes to confirm business alignment and strategic impact
+\end{itemize}
+
+\subsection{Step 6 Output}
+
+\begin{itemize}
+    \item Completed remediation tracking
+    \item Updated documentation and historical records
+    \item Improved TAS workflow and alignment consistency
+\end{itemize}
+
+% ---------- Appendix ----------
+\newpage
+\section*{Appendix A: TAS vs vCIO Responsibilities}
+\addcontentsline{toc}{section}{Appendix A: TAS vs vCIO Responsibilities}
+
+\begin{tabular}{|p{5cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Step / Task} & \textbf{TAS Responsibility} & \textbf{vCIO Responsibility} \\
+\hline
+Pre-Assessment Prep Work & Define and document alignment and lifecycle standards; create and structure alignment tool; ensure readiness for client engagement & Approve standards and alignment tool structure (optional) \\
+\hline
+Client Planning and Scheduling & Collect internal documentation, schedule meetings, identify stakeholders, prepare agendas; communicate TAS role & Support engagement planning if needed; review critical escalations or strategic concerns \\
+\hline
+Pre-Visit Data Gathering & Gather device lists, backup reports, security alerts, network diagrams; pre-fill alignment tool; prepare onsite checklist & Validate that pre-visit data collection aligns with overall strategic priorities \\
+\hline
+Onsite Validation and Discovery & Validate and update ITGlue documentation; log observations in myITprocess; capture evidence; create tickets for remediation & Review prioritized risks and findings; approve final recommendations; provide strategic guidance \\
+\hline
+Reporting and Recommendations & Draft detailed findings and preliminary recommendations; document risk observations & Finalize risk scoring; approve remediation recommendations; communicate approved report to client \\
+\hline
+Follow-Up and Continuous Improvement & Confirm remediation completion; re-validate systems; update ITGlue & Review outcomes to ensure alignment with business objectives; refine strategic guidance \\
+\hline
+\end{tabular}
+
+% ---------- Quick Reference Checklist ----------
+\newpage
+\section*{Appendix B: TAS Quick Reference Checklist}
+\addcontentsline{toc}{section}{Appendix B: TAS Quick Reference Checklist}
+
+\begin{tabular}{|p{5cm}|p{10cm}|}
+\hline
+\textbf{Step} & \textbf{Key TAS Actions} \\
+\hline
+Pre-Assessment Prep Work & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item Finalize alignment and lifecycle standards
+    \item Structure alignment tool in myITprocess
+    \item Confirm readiness for client engagement
+\end{itemize} \\
+\hline
+Client Planning and Scheduling & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item Review ITGlue documentation
+    \item Identify stakeholders and primary contacts
+    \item Schedule meetings and confirm access requirements
+    \item Prepare client outreach communication
+\end{itemize} \\
+\hline
+Pre-Visit Data Gathering & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item Collect RMM device list and verify endpoints
+    \item Review backups and security alerts
+    \item Validate network diagrams and cloud tenant info
+    \item Pre-fill alignment tool and create onsite checklist
+\end{itemize} \\
+\hline
+Onsite Validation and Discovery & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item Validate inventory and system configurations
+    \item Check backups, security, firewall, and cloud services
+    \item Update ITGlue with any corrections
+    \item Log observations in myITprocess
+    \item Tag high-risk items for vCIO review
+\end{itemize} \\
+\hline
+Reporting and Recommendations & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item Draft alignment report with detailed findings
+    \item Capture evidence and screenshots
+    \item Submit preliminary recommendations to vCIO
+    \item Ensure report is understandable to technical and executive audiences
+\end{itemize} \\
+\hline
+Follow-Up and Continuous Improvement & 
+\begin{itemize}[nosep,leftmargin=*]
+    \item Track remediation completion in myITprocess
+    \item Re-validate systems and backup success
+    \item Update ITGlue with final documentation
+    \item Capture lessons learned to improve process
+\end{itemize} \\
+\hline
+\end{tabular}
+
+\end{document}

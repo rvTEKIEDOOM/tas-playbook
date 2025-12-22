@@ -1,0 +1,96 @@
+\documentclass[12pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+% ---------- Shared footer + version control ----------
+\input{tas-footer.tex}  % defines \fancypagestyle{tasfooter}
+
+% ---------- Formatting ----------
+\setstretch{1.15}
+\setlist{nosep}
+
+% ---------- Document ----------
+\begin{document}
+
+\pagestyle{tasfooter} % activate shared style for this document
+
+\begin{center}
+    {\LARGE \textbf{Pre-Visit Alignment Checklist}}\\[0.25cm]
+    {\large Technical Alignment Superhero (TAS)}
+\end{center}
+
+\vspace{0.5cm}
+\tableofcontents
+\newpage
+
+% ===============================
+% P1 — Must-Do Pre-Visit Checklist
+% ===============================
+
+\section*{P1 — Must-Do Pre-Visit Checklist}
+\addcontentsline{toc}{section}{P1 — Must-Do Pre-Visit Checklist}
+
+\subsection*{Mapped SOP Sections: Step 2 — Client Planning and Scheduling; Step 3 — Pre-Visit Data Gathering}
+
+\begin{itemize}
+    \item Review ITGlue documentation for completeness and accuracy.
+    \item Review ticket history in BMS (30--90 days) for recurring issues and trends.
+    \item Review open risks and findings in myITprocess.
+    \item Identify items requiring onsite validation or clarification.
+    \item Confirm primary technical contact.
+    \item Confirm business decision-maker (owner, Executive Director, COO, etc.).
+    \item Confirm onsite access requirements (keys, rooms, VPN, escort).
+    \item Validate monitored device inventory using Kaseya VSA.
+    \item Validate backup status and health in Datto BCDR / Datto Backup for PCs.
+    \item Review critical alerts (SentinelOne, Huntress, ThreatLocker, SaaS Alerts).
+    \item Confirm scheduled visit date, time, and expected duration.
+    \item Document the scheduled visit in myITprocess and internal calendar.
+    \item Pre-fill alignment tool entries in myITprocess (Yes/No/Unknown).
+    \item Prepare an onsite checklist or working document for live findings.
+\end{itemize}
+
+\newpage
+
+% ===============================
+% P2 — Should-Do Pre-Visit Checklist
+% ===============================
+
+\section*{P2 — Should-Do Pre-Visit Checklist}
+\addcontentsline{toc}{section}{P2 — Should-Do Pre-Visit Checklist}
+
+\subsection*{Mapped SOP Sections: Step 2 — Client Planning and Scheduling; Step 3 — Pre-Visit Data Gathering}
+
+\begin{itemize}
+    \item Review network diagrams in ITGlue and confirm recency.
+    \item Validate lifecycle expirations based on known age data (workstations, servers, firewalls).
+    \item Identify expected onsite attendees needed for system validation.
+    \item Identify systems missing monitoring or security agents.
+    \item Record assumptions that require onsite confirmation.
+    \item Review tenant security posture (M365 configuration and high-risk settings).
+\end{itemize}
+
+\newpage
+
+% ===============================
+% P3 — Nice-to-Have Pre-Visit Checklist
+% ===============================
+
+\section*{P3 — Nice-to-Have Pre-Visit Checklist}
+\addcontentsline{toc}{section}{P3 — Nice-to-Have Pre-Visit Checklist}
+
+\subsection*{Mapped SOP Section: Step 2 — Client Planning and Scheduling}
+
+\begin{itemize}
+    \item Pre-draft observations or preliminary findings in myITprocess.
+    \item Ask the client for planned business changes or upcoming initiatives.
+    \item Request escalation or vendor contact information (if not already documented).
+    \item Ask the client about recurring technology pain points or frustrations.
+\end{itemize}
+
+\end{document}

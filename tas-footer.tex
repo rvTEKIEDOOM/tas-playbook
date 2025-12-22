@@ -1,0 +1,24 @@
+% tas-footer.tex
+% Shared version + footer/header configuration for TAS documents
+
+\usepackage{fancyhdr}
+
+% ----- Shared version string -----
+\newcommand{\tasversion}{Technical Alignment Superhero (TAS) Documents · Version 0.9 — Last Updated: December 22, 2025}
+
+% ----- Define a custom page style (do not activate globally here) -----
+\fancypagestyle{tasfooter}{
+    \fancyhf{} % clear header and footer
+
+    % Page number at the top right
+    \fancyhead[R]{\thepage}
+
+    % Version string centered at the bottom
+    \fancyfoot[C]{\small \tasversion}
+
+    % Header line (set to 0pt if you don't want a rule)
+    \renewcommand{\headrulewidth}{0.4pt}
+
+    % No footer rule line
+    \renewcommand{\footrulewidth}{0pt}
+}
