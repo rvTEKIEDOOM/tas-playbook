@@ -1,26 +1,13 @@
-\documentclass[12pt]{article}
+% src/checklists/onsite_checklist.tex
+% REFORMATTED FOR PLAYBOOK INCLUSION
+% - Removed \documentclass, all \usepackage calls, \input{tas-footer.tex}, and \begin/\end{document}
+% - Added ToC entry + correct hyperlink anchor
+% - Kept your content intact otherwise
 
-% ---------- Packages ----------
-\usepackage[margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{setspace}
-\usepackage{enumitem}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage{amssymb} % for \square
-
-% ---------- Shared footer + version control ----------
-\input{tas-footer.tex}
-
-% ---------- Formatting ----------
-\setstretch{1.15}
-\setlist{nosep}
-
-% ---------- Document ----------
-\begin{document}
-
-\pagestyle{tasfooter}
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Onsite Alignment Checklist}
+\label{sec:onsite-checklist}
 
 \begin{center}
     {\Large \textbf{Technical Alignment Superhero (TAS)}}\\[6pt]
@@ -600,5 +587,3 @@
 \vspace{0.5cm}
 \textbf{TAS Signature:} \rule{7cm}{0.4pt}\\[12pt]
 \textbf{Date Completed:} \rule{7cm}{0.4pt}
-
-\end{document}

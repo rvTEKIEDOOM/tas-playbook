@@ -1,26 +1,13 @@
-\documentclass[12pt]{article}
+% src/checklists/previsit_checklist.tex
+% REFORMATTED FOR PLAYBOOK INCLUSION
+% - Removed \documentclass, all \usepackage calls, \input{tas-footer.tex}, and \begin/\end{document}
+% - Added ToC entry + correct hyperlink anchor
+% - Kept your content intact otherwise
 
-% ---------- Packages ----------
-\usepackage[margin=1in]{geometry}
-\usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage{setspace}
-\usepackage{enumitem}
-\usepackage{xcolor}
-\usepackage{hyperref}
-\usepackage{amssymb} % for \square
-
-% ---------- Shared footer + version control ----------
-\input{tas-footer.tex}  % defines \fancypagestyle{tasfooter}
-
-% ---------- Formatting ----------
-\setstretch{1.15}
-\setlist{nosep}
-
-% ---------- Document ----------
-\begin{document}
-
-\pagestyle{tasfooter} % activate shared style (page # top-right, version in footer)
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Pre-Visit Alignment Checklist}
+\label{sec:previsit-checklist}
 
 \begin{center}
     {\Large \textbf{Technical Alignment Superhero (TAS)}}\\[6pt]
@@ -544,5 +531,3 @@
 \vspace{0.5cm}
 \textbf{TAS Signature:} \rule{7cm}{0.4pt}\\[12pt]
 \textbf{Date Completed:} \rule{7cm}{0.4pt}
-
-\end{document}
