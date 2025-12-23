@@ -17,18 +17,6 @@
 \vspace{0.75cm}
 
 % ------------------------------------------------------------
-% Role Definitions
-% ------------------------------------------------------------
-\section*{Role Definitions}
-\addcontentsline{toc}{section}{Role Definitions}
-
-\subsection*{Technical Alignment Superhero (TAS)}
-The TAS is responsible for executing technical assessments, validating client environments, documenting findings, and preparing observations for review. The TAS ensures that all technical aspects of the client environment are accurate, up-to-date, and aligned with Tekie Geek standards. The TAS may recommend actions for remediation internally but does \textbf{not} independently present or finalize strategic recommendations to the client.
-
-\subsection*{vCIO (Virtual Chief Information Officer)}
-The vCIO is responsible for reviewing TAS findings, finalizing alignment scores, prioritizing risks based on business impact, and approving or refining strategic recommendations before they are communicated to the client. The vCIO ensures that all recommendations align with business objectives and client-specific constraints. TAS findings are considered a foundational input for the vCIO.
-
-% ------------------------------------------------------------
 % Step 1
 % ------------------------------------------------------------
 \clearpage
@@ -90,12 +78,134 @@ Define the core alignment categories to be used during assessment:
 
 Define a standardized risk scoring methodology that is simple, consistent, and easily understood by both technical and non-technical stakeholders. Note: TAS collects observations and initial scoring of yes or no (aligned or not aligned); final risk scoring is approved by the vCIO.
 
-\subsubsection{Notes Format}
-\hl{NEED TO DEFINE THIS PORTION A BIT BETTER}
+\subsubsection{3.3.3 Notes Format}
 
-All sections of the technical alignment review \textbf{must} have notes corresponding with the
+All sections of the technical alignment review \textbf{must include structured notes} that clearly document the factual basis for each alignment decision. Notes serve as the authoritative record supporting \textit{Yes / No / Unknown} responses and must be understandable without additional verbal explanation.
 
-\subsection{Step 1 Output}
+\paragraph{Required Note Components}
+
+Each alignment standard note \textbf{must include the following elements}, in order:
+
+\begin{enumerate}
+    \item \textbf{Observed State}
+    \begin{itemize}
+        \item A concise, factual description of what was observed.
+        \item Must describe the current technical condition, configuration, or behavior.
+        \item Avoid conclusions, opinions, or recommendations.
+    \end{itemize}
+
+    \item \textbf{Evidence Source}
+    \begin{itemize}
+        \item Identify how the observation was validated.
+        \item Acceptable sources include:
+        \begin{itemize}
+            \item Tool name and location (e.g., Kaseya VSA device view)
+            \item Screenshot or photo reference
+            \item Configuration export
+            \item Documentation reference (ITGlue object name)
+            \item Stakeholder statement (clearly labeled)
+        \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Alignment Determination}
+    \begin{itemize}
+        \item Explicitly state why the standard was marked:
+        \begin{itemize}
+            \item \textbf{Yes} — Fully meets the standard
+            \item \textbf{No} — Does not meet the standard
+            \item \textbf{Unknown} — Insufficient information to determine
+        \end{itemize}
+        \item Tie the determination directly to the observed state and evidence.
+    \end{itemize}
+
+    \item \textbf{Scope or Impact Context (if applicable)}
+    \begin{itemize}
+        \item Clarify how widespread the issue is.
+        \item Examples include:
+        \begin{itemize}
+            \item ``Affects 3 of 42 endpoints''
+            \item ``Applies only to the primary site''
+            \item ``Limited to legacy systems''
+        \end{itemize}
+        \item Do \textbf{not} assign business priority or severity.
+    \end{itemize}
+
+    \item \textbf{Next Step Indicator (for No or Unknown only)}
+    \begin{itemize}
+        \item Indicate what is required to resolve uncertainty or address the gap.
+        \item Examples include:
+        \begin{itemize}
+            \item ``Requires onsite validation''
+            \item ``Requires configuration remediation''
+            \item ``Requires vCIO review for business context''
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\paragraph{Formatting Rules}
+
+\begin{itemize}
+    \item Notes must be:
+    \begin{itemize}
+        \item Clear and concise
+        \item Written in complete sentences
+        \item Free of speculation or emotional language
+    \end{itemize}
+    \item Notes must \textbf{not} include:
+    \begin{itemize}
+        \item Cost estimates
+        \item Timelines
+        \item Recommendations phrased as directives
+    \end{itemize}
+    \item Stakeholder input must be clearly labeled as:
+    \begin{itemize}
+        \item \textit{Client-stated} or \textit{Stakeholder-reported}
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Acceptable Language Examples}
+
+\begin{itemize}
+    \item ``Observed that 12 of 38 endpoints are missing SentinelOne agent based on RMM agent comparison.''
+    \item ``Firewall configuration validated via ControlOne dashboard; license active and device online.''
+    \item ``Unable to validate backup retention for NAS device; documentation missing and device unavailable onsite.''
+\end{itemize}
+
+\paragraph{Unacceptable Language Examples}
+
+\begin{itemize}
+    \item ``This is really bad and needs to be fixed.''
+    \item ``Client should upgrade immediately.''
+    \item ``Probably not compliant.''
+    \item ``Looks okay.''
+\end{itemize}
+
+\paragraph{Purpose of Notes}
+
+Notes exist to:
+\begin{itemize}
+    \item Defend alignment decisions during vCIO review
+    \item Enable consistent reporting across clients
+    \item Support auditability and historical tracking
+    \item Reduce rework and follow-up clarification
+\end{itemize}
+
+If a third party (vCIO, auditor, or leadership) cannot understand \textbf{what was observed and why the alignment decision was made}, the note is considered incomplete.
+
+\paragraph{Optional Internal Template}
+
+TASs may optionally structure notes using the following internal format:
+
+\begin{verbatim}
+Observed State:
+Evidence:
+Alignment Decision:
+Scope / Impact:
+Next Step:
+\end{verbatim}
+
+
+\subsection{Pre-Assessment Prep Work Output}
 
 \begin{itemize}
     \item A finalized set of alignment and lifecycle standards
@@ -133,13 +243,19 @@ All sections of the technical alignment review \textbf{must} have notes correspo
     \item Provide a high-level agenda if appropriate
 \end{itemize}
 
-\subsubsection{Boilerplate Email Example}
-\hl{I HATE THIS BOILERPLATE; NEED TO CHANGE}
+\subsubsection*{Client Outreach Email Boilerplat}
 
-\begin{tcolorbox}[colback=gray!10, colframe=gray!70, boxrule=0.8pt, arc=4pt, left=6pt, right=6pt]
+\begin{tcolorbox}[
+    colback=gray!10,
+    colframe=gray!70,
+    boxrule=0.8pt,
+    arc=4pt,
+    left=6pt,
+    right=6pt
+]
 \raggedright
 
-\textbf{Subject:} Upcoming Technical Alignment Review
+\textbf{Subject:} Upcoming Alignment Review Visit
 
 \vspace{6pt}
 
@@ -147,37 +263,38 @@ Hi [Client Name],
 
 \vspace{6pt}
 
-I hope this message finds you well. My name is [Your Name], and I am your Technical Alignment Superhero (TAS) with Tekie Geek. My role is to help ensure your IT environment is aligned with best practices, well-documented, and optimized to support your business objectives.
+I’m [Your Name], the Technical Alignment Superhero (TAS) working with your team at Tekie Geek.
 
 \vspace{6pt}
 
-As part of this engagement, I will be conducting an onsite Technical Alignment Review at your location on [Proposed Date]. The purpose of this visit is to:
+I’ll be onsite on \textbf{[Date]} to review and validate the technical side of your environment. The goal of this visit is to make sure everything we base future planning on is accurate and up to date.
 
+\vspace{6pt}
+
+During the visit, I’ll be working quietly in the background to validate systems and documentation and capture anything that needs follow-up with your vCIO. No recommendations or changes will be finalized onsite.
+
+\vspace{6pt}
+
+Before the visit, could you please confirm:
 \begin{itemize}
-  \item Review and validate your current IT environment
-  \item Identify opportunities to improve efficiency, security, and lifecycle management
-  \item Ensure documentation is complete and accurate
-  \item Provide actionable recommendations aligned with your business needs (to be finalized by vCIO)
+    \item The best technical point of contact
+    \item Any stakeholders who should be available
+    \item Any access or timing considerations we should be aware of
 \end{itemize}
 
-The visit is designed to be collaborative, and I will work with your team to gather information efficiently without disrupting day-to-day operations. To help us prepare, it would be helpful to confirm:
+\vspace{6pt}
 
-\begin{itemize}
-  \item Primary technical contact(s) for the visit
-  \item Key decision-makers who should be included in discussions
-  \item Any specific areas you’d like us to focus on
-  \item Access requirements or scheduling considerations
-\end{itemize}
-
-Following the visit, I will provide a summary of observations and recommendations to help guide your IT strategy under vCIO review.
+Looking forward to working with you.
 
 \vspace{6pt}
 
 Best regards,\\
 [Your Name]\\
 Technical Alignment Superhero\\
+Tekie Geek
 
 \end{tcolorbox}
+
 
 \subsection{Documentation Review (ITGlue)}
 
@@ -209,7 +326,7 @@ Review ITGlue to build familiarity with the client environment. Missing or incom
     \item Vendor contacts and escalation paths
 \end{itemize}
 
-\subsection{Step 2 Output}
+\subsection{Client Scheduling and Planning Output}
 
 \begin{itemize}
     \item Clear engagement plan and onsite agenda
@@ -239,7 +356,7 @@ Click \hyperref[sec:previsit-checklist]{here} to see the full previsit checklist
     \item \textbf{Onsite Checklist:} Prepare physical or digital checklist for validation and documentation
 \end{itemize}
 
-\subsection{Step 3 Output}
+\subsection{Pre-Visit Data Gathering Output}
 
 \begin{itemize}
     \item Updated and validated inventory of monitored devices
@@ -283,7 +400,7 @@ Click \hyperref[sec:onsite-checklist]{here} to see the full onsite checklist for
     \item TAS is responsible for capturing and validating factual data; the vCIO will prioritize, approve, and communicate any strategic recommendations
 \end{itemize}
 
-\subsection{Step 4 Output}
+\subsection{Onsite Validation and Discovery Output}
 
 \begin{itemize}
     \item Verified and updated documentation in ITGlue
@@ -320,7 +437,7 @@ Click \hyperref[sec:onsite-checklist]{here} to see the full onsite checklist for
     \item vCIO validates recommendations and may adjust priorities or approach based on business context
 \end{itemize}
 
-\subsection{Step 5 Output}
+\subsection{Reporting and Recommendations Output}
 
 \begin{itemize}
     \item Finalized alignment report approved by vCIO
@@ -336,7 +453,7 @@ Click \hyperref[sec:onsite-checklist]{here} to see the full onsite checklist for
 \textbf{Goal:} Ensure recommendations are implemented and continuously improve the alignment process.
 
 \subsection{Follow-Up Checklist}
-
+Click \hyperref[sec:followup-checklist]{here} to see the full follow up checklist for full execution steps.
 \begin{itemize}
     \item Confirm remediation completion via myITprocess
     \item Re-validate systems using Kaseya VSA
@@ -348,13 +465,13 @@ Click \hyperref[sec:onsite-checklist]{here} to see the full onsite checklist for
 \subsection{Best Practices}
 
 \begin{itemize}
-    \item Schedule recurring alignment reviews in myITprocess \hl{NOTE: not sure if you can actually schedule a meeting without a finding in myITprocess; didn't work when I tried}
+    \item Schedule recurring alignment reviews in myITprocess
     \item Capture lessons learned to refine future alignment standards
     \item TAS ensures all technical actions are completed and documented
     \item vCIO reviews final outcomes to confirm business alignment and strategic impact
 \end{itemize}
 
-\subsection{Step 6 Output}
+\subsection{Follow-Up and Continuous Improvement Output}
 
 \begin{itemize}
     \item Completed remediation tracking
